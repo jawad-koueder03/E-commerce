@@ -1,0 +1,521 @@
+/* src/components/products/ProductSort.css */
+
+/* === الحاوية الرئيسية === */
+.product-sort {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+
+/* === التصنيفات === */
+.product-sort.default {
+  /* النمط الافتراضي */
+}
+
+.product-sort.inline {
+  gap: 4px;
+}
+
+.product-sort.minimal {
+  gap: 0;
+}
+
+/* === زر الترتيب === */
+.sort-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b5563;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-family: inherit;
+  position: relative;
+  min-width: 140px;
+  user-select: none;
+}
+
+.sort-button:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.04);
+  transform: translateY(-1px);
+}
+
+.sort-button:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.sort-button.open {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.04);
+}
+
+.sort-button.active {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.06);
+  color: #667eea;
+}
+
+.sort-button.active:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+/* === أنماط مختلفة للزر === */
+.product-sort.inline .sort-button {
+  padding: 6px 12px;
+  min-width: auto;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.product-sort.minimal .sort-button {
+  padding: 4px 8px;
+  min-width: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 12px;
+  background: transparent;
+}
+
+.product-sort.minimal .sort-button:hover {
+  background: rgba(102, 126, 234, 0.04);
+}
+
+.product-sort.minimal .sort-button.active {
+  border-color: #667eea;
+}
+
+/* === محتوى الزر === */
+.sort-button-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.sort-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.sort-button-label {
+  flex: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.sort-minimal-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.sort-minimal-icon {
+  font-size: 14px;
+}
+
+/* === السهم === */
+.sort-arrow {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  color: #9ca3af;
+}
+
+.sort-arrow.open {
+  transform: rotate(180deg);
+}
+
+.sort-arrow svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* === النقطة النشطة === */
+.sort-active-dot {
+  width: 8px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
+}
+
+/* === التصنيف (Label) === */
+.sort-label {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.product-sort.inline .sort-label {
+  font-size: 13px;
+}
+
+.product-sort.minimal .sort-label {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* === القائمة المنسدلة === */
+.sort-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 240px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  z-index: 1000;
+  animation: dropdownSlide 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* === رأس القائمة === */
+.sort-dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  background: #fafbfc;
+}
+
+.dropdown-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.dropdown-reset {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  border-radius: 6px;
+}
+
+.dropdown-reset:hover {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.reset-icon {
+  font-size: 14px;
+}
+
+/* === خيارات القائمة === */
+.sort-options {
+  list-style: none;
+  padding: 4px 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* تخصيص شريط التمرير */
+.sort-options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sort-options::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.sort-options::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.sort-options::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.sort-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #4b5563;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  text-align: right;
+  position: relative;
+}
+
+.sort-option:hover {
+  background: rgba(102, 126, 234, 0.06);
+  color: #1f2937;
+}
+
+.sort-option.selected {
+  background: rgba(102, 126, 234, 0.08);
+  color: #667eea;
+  font-weight: 600;
+}
+
+.sort-option.selected::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 0 3px 3px 0;
+}
+
+.option-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  width: 28px;
+  text-align: center;
+}
+
+.option-label {
+  flex: 1;
+}
+
+.option-check {
+  color: #667eea;
+  font-weight: 700;
+  font-size: 16px;
+  animation: checkPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes checkPop {
+  0% {
+    transform: scale(0) rotate(-45deg);
+  }
+  60% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* === التصميم المتجاوب === */
+@media (max-width: 768px) {
+  .product-sort.default .sort-button {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-width: 120px;
+  }
+
+  .sort-dropdown {
+    min-width: 200px;
+    right: -10px;
+  }
+
+  .sort-option {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .sort-dropdown-header {
+    padding: 10px 14px;
+  }
+
+  .dropdown-title {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-sort.default .sort-button {
+    padding: 4px 10px;
+    font-size: 12px;
+    min-width: 100px;
+    border-radius: 8px;
+  }
+
+  .sort-button-label {
+    font-size: 12px;
+  }
+
+  .sort-icon {
+    font-size: 14px;
+  }
+
+  .sort-dropdown {
+    min-width: 180px;
+    right: -20px;
+  }
+
+  .sort-option {
+    padding: 8px 12px;
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .option-icon {
+    font-size: 14px;
+    width: 24px;
+  }
+
+  .sort-dropdown-header {
+    padding: 8px 12px;
+  }
+
+  .dropdown-title {
+    font-size: 12px;
+  }
+
+  .dropdown-reset {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+
+  .product-sort.minimal .sort-button {
+    padding: 2px 6px;
+    font-size: 11px;
+  }
+
+  .sort-minimal-label {
+    font-size: 11px;
+  }
+
+  .sort-minimal-icon {
+    font-size: 12px;
+  }
+}
+
+/* === دعم RTL === */
+[dir="rtl"] .sort-dropdown {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .sort-option.selected::before {
+  right: auto;
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+[dir="rtl"] .option-check {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .sort-dropdown {
+    right: auto;
+    left: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  [dir="rtl"] .sort-dropdown {
+    right: auto;
+    left: -20px;
+  }
+}
+
+/* === تحسينات للوصول === */
+@media (prefers-reduced-motion: reduce) {
+  .sort-button,
+  .sort-arrow,
+  .sort-dropdown,
+  .sort-option,
+  .option-check {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .sort-dropdown {
+    animation: none !important;
+  }
+
+  .option-check {
+    animation: none !important;
+  }
+
+  .sort-active-dot {
+    animation: none !important;
+  }
+
+  .sort-button:hover {
+    transform: none !important;
+  }
+}
+
+/* === حالة التركيز للوصول === */
+.sort-option:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: -2px;
+}
+
+.sort-button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* === تنسيقات إضافية === */
+.product-sort.active .sort-button {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.04);
+}
+
+/* دعم القائمة العائمة في الصفحات المزدحمة */
+.sort-dropdown {
+  max-height: 400px;
+}
+
+/* تنسيق الخيار المعطل */
+.sort-option:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sort-option:disabled:hover {
+  background: none;
+}

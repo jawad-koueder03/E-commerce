@@ -1,0 +1,177 @@
+/* src/components/layout/Layout.css */
+
+/* === الحاوية الرئيسية === */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+/* === خلفيات مختلفة حسب الصفحة === */
+
+/* الصفحة الرئيسية - خلفية متدرجة */
+.layout-home {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #ede9fe 100%);
+}
+
+/* صفحة المنتج - خلفية بيضاء مع لمسة خفيفة */
+.layout-product {
+  background: #ffffff;
+}
+
+/* صفحة السلة - خلفية رمادية فاتحة */
+.layout-cart {
+  background: #f7f9fc;
+}
+
+/* صفحات المصادقة (تسجيل دخول، الخ) - بدون Navbar */
+.layout-auth {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+/* === المحتوى الرئيسي === */
+.layout-main {
+  flex: 1;
+  margin-top: 70px; /* تعويض ارتفاع الـ Navbar الثابت */
+  min-height: calc(100vh - 70px);
+  transition: all 0.3s ease;
+  padding: 20px 0;
+  position: relative;
+}
+
+/* بدون Navbar (صفحات الدخول) */
+.layout-main-full {
+  margin-top: 0;
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === تذييل الصفحة === */
+.layout-footer {
+  margin-top: auto;
+}
+
+/* === زر العودة للأعلى === */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+}
+
+.scroll-to-top:active {
+  transform: scale(0.9);
+}
+
+.scroll-to-top span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.scroll-to-top:hover span {
+  transform: translateY(-3px);
+}
+
+/* === تحسينات للشاشات الصغيرة === */
+@media (max-width: 768px) {
+  .layout-main {
+    margin-top: 60px; /* ارتفاع الـ Navbar على الموبايل */
+    min-height: calc(100vh - 60px);
+    padding: 12px 0;
+  }
+
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-main {
+    padding: 8px 0;
+  }
+
+  .scroll-to-top {
+    bottom: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
+/* === إضافات تحسينية === */
+
+/* تحسين التمرير */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
+}
+
+/* تحديد النص */
+::selection {
+  background: #667eea;
+  color: white;
+}
+
+/* تحسين الطباعة */
+@media print {
+  .navbar,
+  .layout-footer,
+  .scroll-to-top {
+    display: none !important;
+  }
+
+  .layout-main {
+    margin-top: 0 !important;
+  }
+}

@@ -1,0 +1,532 @@
+/* src/components/layout/Footer.css */
+
+/* === التذييل الأساسي === */
+.footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #e5e7eb;
+  padding: 60px 20px 0;
+  margin-top: 40px;
+  border-top: 4px solid linear-gradient(135deg, #667eea, #764ba2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* زخرفة خلفية */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.footer::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(118, 75, 162, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* === الحاوية === */
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  z-index: 1;
+}
+
+/* === الأقسام === */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-about {
+  gap: 20px;
+}
+
+.footer-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo {
+  font-size: 30px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #9ca3af;
+  margin: 0;
+  max-width: 350px;
+}
+
+.footer-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin: 0 0 4px 0;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+/* === الروابط الاجتماعية === */
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: #e5e7eb;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.social-link:hover {
+  transform: translateY(-4px);
+  border-color: transparent;
+}
+
+.social-link.twitter:hover {
+  background: #1DA1F2;
+  color: white;
+  box-shadow: 0 4px 20px rgba(29, 161, 242, 0.4);
+}
+
+.social-link.instagram:hover {
+  background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+  color: white;
+  box-shadow: 0 4px 20px rgba(193, 53, 132, 0.4);
+}
+
+.social-link.youtube:hover {
+  background: #FF0000;
+  color: white;
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
+}
+
+.social-link.github:hover {
+  background: #333333;
+  color: white;
+  box-shadow: 0 4px 20px rgba(51, 51, 51, 0.4);
+}
+
+/* === القوائم === */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links li a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.footer-links li a::before {
+  content: '←';
+  position: absolute;
+  right: -20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: #667eea;
+  padding-right: 24px;
+}
+
+.footer-links li a:hover::before {
+  opacity: 1;
+  right: 0;
+}
+
+/* === معلومات الاتصال === */
+.footer-contact-section {
+  gap: 16px;
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #9ca3af;
+  transition: all 0.3s ease;
+}
+
+.footer-contact li:hover {
+  color: #e5e7eb;
+}
+
+.contact-icon {
+  font-size: 18px;
+  width: 28px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+/* === الجزء السفلي === */
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px 0;
+  margin: 0 -20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.footer-bottom-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.footer-copyright strong {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.footer-legal a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: #667eea;
+}
+
+.legal-divider {
+  color: #4b5563;
+}
+
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-payment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.payment-icon {
+  font-size: 24px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.payment-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.footer-secure {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-secure::before {
+  content: '🔒';
+  font-size: 14px;
+}
+
+/* === التصميم المتجاوب === */
+@media (max-width: 1200px) {
+  .footer-container {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+  
+  .footer-contact-section {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .footer-about {
+    grid-column: span 2;
+  }
+
+  .footer-description {
+    max-width: 100%;
+  }
+
+  .footer-bottom-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .footer-bottom-left {
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-bottom-right {
+    justify-content: center;
+  }
+
+  .footer-payment {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 16px 0;
+    margin-top: 30px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-bottom: 30px;
+  }
+
+  .footer-about {
+    grid-column: span 1;
+  }
+
+  .footer-section {
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-title {
+    justify-content: center;
+  }
+
+  .footer-description {
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-heading::after {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .footer-links li a::before {
+    content: '↑';
+    position: static;
+    opacity: 1;
+    margin-left: 4px;
+  }
+
+  .footer-links li a:hover {
+    padding-right: 0;
+  }
+
+  .footer-links li a:hover::before {
+    opacity: 1;
+  }
+
+  .footer-contact li {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    margin: 0 -16px;
+  }
+
+  .footer-bottom-container {
+    padding: 0 16px;
+  }
+
+  .footer-legal {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .footer-legal .legal-divider {
+    display: none;
+  }
+
+  .footer-payment {
+    flex-wrap: wrap;
+  }
+
+  .footer-secure {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 12px 0;
+  }
+
+  .footer-title {
+    font-size: 22px;
+  }
+
+  .footer-logo {
+    font-size: 26px;
+  }
+
+  .footer-description {
+    font-size: 13px;
+  }
+
+  .footer-heading {
+    font-size: 15px;
+  }
+
+  .footer-links li a {
+    font-size: 13px;
+  }
+
+  .footer-contact li {
+    font-size: 13px;
+  }
+
+  .social-link {
+    width: 38px;
+    height: 38px;
+  }
+
+  .footer-copyright {
+    font-size: 12px;
+  }
+
+  .footer-legal a {
+    font-size: 12px;
+  }
+
+  .payment-icon {
+    font-size: 20px;
+  }
+
+  .footer-secure {
+    font-size: 12px;
+  }
+
+  .footer-container {
+    gap: 24px;
+  }
+
+  .footer-bottom {
+    padding: 16px 0;
+  }
+}
+
+/* === تحسينات إضافية === */
+@media (prefers-reduced-motion: reduce) {
+  .social-link,
+  .footer-links li a,
+  .footer-contact li,
+  .payment-icon {
+    transition: none !important;
+  }
+
+  .social-link:hover {
+    transform: none !important;
+  }
+}

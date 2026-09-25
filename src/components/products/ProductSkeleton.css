@@ -1,0 +1,550 @@
+/* src/components/products/ProductSkeleton.css */
+
+/* === الحاوية الرئيسية === */
+.skeleton-wrapper {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+}
+
+.skeleton-wrapper.grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.skeleton-wrapper.list {
+  grid-template-columns: 1fr;
+}
+
+/* === بطاقة التحميل === */
+.product-skeleton {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.product-skeleton.animate {
+  opacity: 0;
+  animation: skeletonFadeIn 0.6s ease forwards;
+}
+
+@keyframes skeletonFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* === وضع القائمة === */
+.product-skeleton.list {
+  display: flex;
+  flex-direction: row;
+  min-height: 200px;
+}
+
+.product-skeleton.list .skeleton-container {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.product-skeleton.list .skeleton-image-wrapper {
+  width: 200px;
+  flex-shrink: 0;
+  padding-top: 0;
+  height: 100%;
+  min-height: 200px;
+}
+
+.product-skeleton.list .skeleton-image {
+  position: relative;
+  height: 100%;
+  min-height: 200px;
+}
+
+.product-skeleton.list .skeleton-content {
+  flex: 1;
+  padding: 16px 20px 16px 0;
+}
+
+/* === أنماط مختلفة === */
+.product-skeleton.card .skeleton-image-wrapper {
+  padding-top: 75%;
+}
+
+.product-skeleton.card .skeleton-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.product-skeleton.minimal .skeleton-content {
+  padding: 12px 16px;
+}
+
+.product-skeleton.minimal .skeleton-title {
+  height: 16px;
+}
+
+.product-skeleton.minimal .skeleton-price {
+  height: 18px;
+  width: 60px;
+}
+
+/* === حاوية الصورة === */
+.skeleton-image-wrapper {
+  position: relative;
+  padding-top: 100%;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+.skeleton-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e5e7eb;
+  border-radius: 0;
+}
+
+.skeleton-image::before {
+  content: '🖼️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  opacity: 0.3;
+}
+
+/* === شارة وهمية === */
+.skeleton-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 50px;
+  height: 24px;
+  border-radius: 20px;
+  background: #e5e7eb;
+}
+
+/* === المحتوى === */
+.skeleton-content {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* === الفئة === */
+.skeleton-category {
+  width: 80px;
+  height: 20px;
+  border-radius: 12px;
+  background: #e5e7eb;
+}
+
+/* === العنوان === */
+.skeleton-title {
+  height: 18px;
+  border-radius: 4px;
+  background: #e5e7eb;
+  margin: 0;
+}
+
+.skeleton-title:last-child {
+  width: 70%;
+}
+
+/* === التقييم === */
+.skeleton-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0;
+}
+
+.skeleton-stars {
+  width: 100px;
+  height: 16px;
+  border-radius: 4px;
+  background: #e5e7eb;
+}
+
+.skeleton-rating-count {
+  width: 30px;
+  height: 14px;
+  border-radius: 4px;
+  background: #e5e7eb;
+}
+
+/* === الوصف === */
+.skeleton-description {
+  height: 14px;
+  border-radius: 4px;
+  background: #e5e7eb;
+}
+
+/* === تذييل البطاقة === */
+.skeleton-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.skeleton-price {
+  width: 80px;
+  height: 24px;
+  border-radius: 4px;
+  background: #e5e7eb;
+}
+
+.skeleton-button {
+  width: 100px;
+  height: 36px;
+  border-radius: 8px;
+  background: #e5e7eb;
+}
+
+/* === حالة التوفر (وضع القائمة) === */
+.skeleton-availability {
+  width: 100px;
+  height: 20px;
+  border-radius: 12px;
+  background: #e5e7eb;
+  margin-top: 4px;
+}
+
+/* === تأثير الـ Shimmer === */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: shimmerWave 1.8s ease-in-out infinite;
+  transform: translateX(-100%);
+}
+
+@keyframes shimmerWave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* === تقليل الحركات === */
+.product-skeleton.animate {
+  animation: none !important;
+}
+
+/* === التصميم المتجاوب === */
+@media (max-width: 1200px) {
+  .skeleton-wrapper.grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .skeleton-wrapper.grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .product-skeleton.list .skeleton-image-wrapper {
+    width: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeleton-wrapper {
+    gap: 16px;
+  }
+
+  .skeleton-wrapper.grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .product-skeleton {
+    border-radius: 12px;
+  }
+
+  .product-skeleton.list {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .product-skeleton.list .skeleton-container {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .product-skeleton.list .skeleton-image-wrapper {
+    width: 100%;
+    padding-top: 60%;
+    min-height: 0;
+  }
+
+  .product-skeleton.list .skeleton-image {
+    position: absolute;
+    min-height: 0;
+  }
+
+  .product-skeleton.list .skeleton-content {
+    padding: 12px 16px 16px;
+  }
+
+  .skeleton-content {
+    padding: 12px 16px 16px;
+    gap: 8px;
+  }
+
+  .skeleton-title {
+    height: 16px;
+  }
+
+  .skeleton-price {
+    height: 20px;
+    width: 70px;
+  }
+
+  .skeleton-button {
+    height: 32px;
+    width: 80px;
+  }
+
+  .skeleton-category {
+    height: 18px;
+    width: 70px;
+  }
+
+  .skeleton-image::before {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skeleton-wrapper.grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .product-skeleton {
+    border-radius: 10px;
+  }
+
+  .skeleton-content {
+    padding: 10px 12px 14px;
+    gap: 6px;
+  }
+
+  .skeleton-title {
+    height: 14px;
+  }
+
+  .skeleton-title:last-child {
+    width: 60%;
+  }
+
+  .skeleton-price {
+    height: 18px;
+    width: 60px;
+  }
+
+  .skeleton-button {
+    height: 28px;
+    width: 70px;
+  }
+
+  .skeleton-category {
+    height: 16px;
+    width: 60px;
+  }
+
+  .skeleton-stars {
+    width: 80px;
+    height: 14px;
+  }
+
+  .skeleton-rating-count {
+    width: 25px;
+    height: 12px;
+  }
+
+  .skeleton-description {
+    height: 12px;
+  }
+
+  .skeleton-image::before {
+    font-size: 24px;
+  }
+
+  .skeleton-badge {
+    width: 40px;
+    height: 20px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .product-skeleton.card .skeleton-image-wrapper {
+    padding-top: 85%;
+  }
+}
+
+/* === دعم RTL === */
+[dir="rtl"] .skeleton-content {
+  direction: rtl;
+}
+
+[dir="rtl"] .skeleton-badge {
+  right: auto;
+  left: 12px;
+}
+
+/* === تحسينات للوصول === */
+@media (prefers-reduced-motion: reduce) {
+  .product-skeleton.animate {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .shimmer::after {
+    animation: none !important;
+  }
+
+  .shimmer {
+    background: #e5e7eb !important;
+  }
+}
+
+/* === دعم الوضع المظلم === */
+@media (prefers-color-scheme: dark) {
+  .product-skeleton {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .skeleton-image-wrapper {
+    background: #1a1a2e;
+  }
+
+  .skeleton-image {
+    background: #2d3748;
+  }
+
+  .skeleton-image::before {
+    opacity: 0.15;
+  }
+
+  .shimmer {
+    background: #2d3748;
+  }
+
+  .shimmer::after {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%
+    );
+  }
+
+  .skeleton-badge {
+    background: #2d3748;
+  }
+
+  .skeleton-category,
+  .skeleton-title,
+  .skeleton-stars,
+  .skeleton-rating-count,
+  .skeleton-description,
+  .skeleton-price,
+  .skeleton-button,
+  .skeleton-availability {
+    background: #2d3748;
+  }
+
+  .skeleton-footer {
+    border-color: #374151;
+  }
+}
+
+/* === تنسيقات إضافية === */
+.product-skeleton {
+  pointer-events: none;
+  user-select: none;
+}
+
+.skeleton-wrapper {
+  min-height: 200px;
+}
+
+/* عرض عدد محدد من العناصر */
+.skeleton-wrapper.count-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.skeleton-wrapper.count-8 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+  .skeleton-wrapper.count-4,
+  .skeleton-wrapper.count-8 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .skeleton-wrapper.count-4,
+  .skeleton-wrapper.count-8 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* === حالة التحميل المتقدمة === */
+.skeleton-wrapper .product-skeleton:last-child {
+  margin-bottom: 0;
+}
+
+/* إضافة تأثير بسيط عند التحميل */
+@keyframes skeletonPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.product-skeleton.animate:not(.shimmer) {
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}

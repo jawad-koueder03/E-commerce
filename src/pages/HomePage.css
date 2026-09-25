@@ -1,0 +1,644 @@
+/* src/pages/HomePage.css */
+
+/* === الصفحة الرئيسية === */
+.home-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: pageFadeIn 0.5s ease;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === التحميل === */
+.home-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 20px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === قسم الهيرو === */
+.hero-section {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 50px;
+  height: 420px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.hero-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  padding: 40px 60px;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+}
+
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 14px 36px;
+  background: white;
+  color: #1f2937;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hero-image {
+  flex: 0 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-emoji {
+  font-size: 120px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* === مؤشرات السلايدر === */
+.slider-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.indicator.active {
+  background: white;
+  border-color: white;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  transform: scale(1.1);
+}
+
+/* === أزرار التنقل === */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: none;
+  color: white;
+  font-size: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.slider-btn.prev {
+  left: 20px;
+}
+
+.slider-btn.next {
+  right: 20px;
+}
+
+/* === الأقسام العامة === */
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 30px;
+}
+
+.section-header .section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.section-header .section-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.section-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease;
+  align-self: flex-start;
+}
+
+.section-link:hover {
+  color: #764ba2;
+}
+
+/* === الفئات === */
+.categories-section {
+  margin-bottom: 50px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 16px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-color: #667eea;
+}
+
+.category-icon {
+  font-size: 32px;
+}
+
+.category-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  text-align: center;
+}
+
+/* === المنتجات المميزة === */
+.featured-section {
+  margin-bottom: 50px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* === إعلان منتصف الصفحة === */
+.promo-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 40px 48px;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.promo-content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.promo-icon {
+  font-size: 48px;
+}
+
+.promo-text {
+  flex: 1;
+}
+
+.promo-text h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.promo-text p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.promo-text strong {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 12px;
+  border-radius: 4px;
+}
+
+/* === المنتجات === */
+.products-section,
+.top-rated-section {
+  margin-bottom: 50px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.products-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* === المميزات === */
+.features-section {
+  margin-bottom: 30px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px 20px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.feature-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.feature-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* === التجاوب === */
+@media (max-width: 1024px) {
+  .hero-section {
+    height: 380px;
+  }
+
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .hero-emoji {
+    font-size: 100px;
+  }
+
+  .featured-grid,
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page {
+    padding: 12px;
+  }
+
+  .hero-section {
+    height: auto;
+    min-height: 320px;
+    border-radius: 14px;
+  }
+
+  .hero-slide {
+    padding: 30px 24px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  .hero-emoji {
+    font-size: 80px;
+  }
+
+  .hero-image {
+    flex: 0 0 auto;
+  }
+
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+  }
+
+  .slider-btn.prev {
+    left: 10px;
+  }
+
+  .slider-btn.next {
+    right: 10px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .featured-grid,
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .promo-banner {
+    padding: 24px 20px;
+  }
+
+  .promo-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .promo-icon {
+    font-size: 36px;
+  }
+
+  .promo-text h3 {
+    font-size: 20px;
+  }
+
+  .promo-text p {
+    font-size: 14px;
+  }
+
+  .section-header .section-title {
+    font-size: 22px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page {
+    padding: 8px;
+  }
+
+  .hero-section {
+    min-height: 280px;
+    border-radius: 10px;
+  }
+
+  .hero-slide {
+    padding: 20px 16px;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .hero-emoji {
+    font-size: 60px;
+  }
+
+  .hero-button {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  .slider-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+  }
+
+  .category-card {
+    padding: 16px 12px;
+  }
+
+  .category-icon {
+    font-size: 24px;
+  }
+
+  .category-name {
+    font-size: 12px;
+  }
+
+  .featured-grid,
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .featured-grid .product-card,
+  .products-grid .product-card {
+    border-radius: 10px;
+  }
+
+  .promo-banner {
+    padding: 20px 16px;
+    border-radius: 10px;
+  }
+
+  .promo-text h3 {
+    font-size: 18px;
+  }
+
+  .promo-text p {
+    font-size: 13px;
+  }
+
+  .section-header .section-title {
+    font-size: 20px;
+  }
+
+  .section-header .section-subtitle {
+    font-size: 14px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .feature-card {
+    padding: 20px 12px;
+  }
+
+  .feature-icon {
+    font-size: 28px;
+  }
+
+  .feature-card h4 {
+    font-size: 14px;
+  }
+
+  .feature-card p {
+    font-size: 12px;
+  }
+}
+
+/* === تحسينات للوصول === */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide,
+  .hero-emoji,
+  .category-card,
+  .feature-card,
+  .hero-button {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero-button:hover {
+    transform: none !important;
+  }
+
+  .loading-spinner {
+    animation-duration: 0s !important;
+  }
+}

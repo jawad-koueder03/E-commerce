@@ -1,0 +1,650 @@
+/* src/pages/NotFoundPage.css */
+
+/* === الصفحة === */
+.notfound-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.notfound-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 48px 40px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+  animation: containerSlideUp 0.6s ease;
+  overflow: hidden;
+}
+
+@keyframes containerSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* === الخلفية المتحركة === */
+.notfound-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-element {
+  position: absolute;
+  font-size: 60px;
+  opacity: 0.06;
+  font-weight: 900;
+  animation: floatElement 8s ease-in-out infinite;
+}
+
+.floating-element.el-1 {
+  top: -20px;
+  right: -20px;
+  font-size: 120px;
+  animation-delay: 0s;
+}
+
+.floating-element.el-2 {
+  bottom: -10px;
+  left: -10px;
+  font-size: 80px;
+  animation-delay: 2s;
+}
+
+.floating-element.el-3 {
+  top: 50%;
+  right: -30px;
+  font-size: 70px;
+  animation-delay: 4s;
+}
+
+.floating-element.el-4 {
+  bottom: 40%;
+  left: -20px;
+  font-size: 60px;
+  animation-delay: 6s;
+}
+
+@keyframes floatElement {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translateY(-20px) rotate(5deg) scale(1.05);
+  }
+  66% {
+    transform: translateY(20px) rotate(-5deg) scale(0.95);
+  }
+}
+
+/* === المحتوى الرئيسي === */
+.notfound-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* === رمز الحالة === */
+.notfound-code-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.notfound-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 100px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.code-digit {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: digitBounce 2s ease-in-out infinite;
+}
+
+.code-digit.digit-1 {
+  animation-delay: 0s;
+}
+
+.code-digit.digit-2 {
+  animation-delay: 0.2s;
+}
+
+.code-digit.digit-3 {
+  animation-delay: 0.4s;
+}
+
+@keyframes digitBounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+.notfound-emoji {
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  font-size: 48px;
+  animation: emojiSpin 4s ease-in-out infinite;
+}
+
+@keyframes emojiSpin {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(10deg) scale(0.9);
+  }
+}
+
+/* === النصوص === */
+.notfound-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+}
+
+.notfound-message {
+  font-size: 16px;
+  color: #6b7280;
+  max-width: 500px;
+  margin: 0 auto 16px auto;
+  line-height: 1.7;
+}
+
+.notfound-tip {
+  font-size: 14px;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.08);
+  padding: 8px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  margin: 0 auto 24px auto;
+}
+
+/* === العد التنازلي === */
+.notfound-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  padding: 12px 24px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.countdown-text {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.countdown-number {
+  font-size: 24px;
+  font-weight: 800;
+  color: #667eea;
+  min-width: 30px;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* === جاري التوجيه === */
+.notfound-redirecting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.redirecting-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === الأزرار === */
+.notfound-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.action-btn {
+  min-width: 200px;
+}
+
+/* === الروابط المقترحة === */
+.notfound-suggestions {
+  margin-bottom: 36px;
+  padding-top: 32px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.suggestions-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 16px 0;
+}
+
+.suggestions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.suggestion-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.suggestion-link:hover {
+  background: white;
+  border-color: #667eea;
+  color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+}
+
+.suggestion-icon {
+  font-size: 18px;
+}
+
+/* === البحث === */
+.notfound-search {
+  margin-bottom: 32px;
+  padding-top: 32px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.search-title {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 12px 0;
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  background: #f8fafc;
+}
+
+.search-input:focus {
+  border-color: #667eea;
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.08);
+}
+
+.search-button {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.search-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* === التذييل === */
+.notfound-footer {
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.footer-text {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* === التجاوب === */
+@media (max-width: 768px) {
+  .notfound-container {
+    padding: 32px 24px;
+    border-radius: 18px;
+  }
+
+  .notfound-code {
+    font-size: 72px;
+  }
+
+  .notfound-title {
+    font-size: 26px;
+  }
+
+  .notfound-message {
+    font-size: 15px;
+  }
+
+  .notfound-emoji {
+    font-size: 36px;
+    top: -10px;
+    right: -20px;
+  }
+
+  .notfound-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .suggestions-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .search-form {
+    max-width: 100%;
+    flex-direction: column;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+
+  .floating-element {
+    font-size: 40px;
+  }
+
+  .floating-element.el-1 {
+    font-size: 80px;
+    top: -10px;
+    right: -10px;
+  }
+
+  .floating-element.el-2 {
+    font-size: 50px;
+  }
+
+  .floating-element.el-3 {
+    font-size: 40px;
+  }
+
+  .floating-element.el-4 {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .notfound-container {
+    padding: 24px 16px;
+    border-radius: 14px;
+  }
+
+  .notfound-code {
+    font-size: 56px;
+  }
+
+  .notfound-title {
+    font-size: 22px;
+  }
+
+  .notfound-message {
+    font-size: 14px;
+  }
+
+  .notfound-emoji {
+    font-size: 28px;
+    top: -8px;
+    right: -15px;
+  }
+
+  .notfound-tip {
+    font-size: 13px;
+    padding: 6px 16px;
+  }
+
+  .countdown-number {
+    font-size: 20px;
+  }
+
+  .suggestions-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .suggestion-link {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .floating-element {
+    display: none;
+  }
+
+  .notfound-countdown {
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 10px 16px;
+  }
+
+  .countdown-text {
+    font-size: 13px;
+  }
+}
+
+/* === تحسينات للوصول === */
+@media (prefers-reduced-motion: reduce) {
+  .notfound-container {
+    animation: none !important;
+  }
+
+  .code-digit {
+    animation: none !important;
+  }
+
+  .notfound-emoji {
+    animation: none !important;
+  }
+
+  .countdown-number {
+    animation: none !important;
+  }
+
+  .floating-element {
+    animation: none !important;
+  }
+
+  .redirecting-spinner {
+    animation-duration: 0s !important;
+  }
+
+  .suggestion-link:hover {
+    transform: none !important;
+  }
+
+  .search-button:hover {
+    transform: none !important;
+  }
+}
+
+/* === دعم RTL === */
+[dir="rtl"] .notfound-emoji {
+  right: auto;
+  left: -30px;
+}
+
+[dir="rtl"] .suggestion-link {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .notfound-emoji {
+    right: auto;
+    left: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  [dir="rtl"] .notfound-emoji {
+    right: auto;
+    left: -15px;
+  }
+}
+
+/* === دعم الوضع المظلم === */
+@media (prefers-color-scheme: dark) {
+  .notfound-container {
+    background: rgba(31, 41, 55, 0.95);
+  }
+
+  .notfound-title {
+    color: #f3f4f6;
+  }
+
+  .notfound-message {
+    color: #9ca3af;
+  }
+
+  .notfound-tip {
+    background: rgba(102, 126, 234, 0.15);
+    color: #818cf8;
+  }
+
+  .notfound-countdown {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .countdown-text {
+    color: #9ca3af;
+  }
+
+  .suggestion-link {
+    background: #1f2937;
+    border-color: #374151;
+    color: #d1d5db;
+  }
+
+  .suggestion-link:hover {
+    background: #374151;
+    border-color: #667eea;
+    color: #818cf8;
+  }
+
+  .notfound-suggestions,
+  .notfound-search,
+  .notfound-footer {
+    border-color: #374151;
+  }
+
+  .search-input {
+    background: #1f2937;
+    border-color: #374151;
+    color: #f3f4f6;
+  }
+
+  .search-input:focus {
+    background: #374151;
+    border-color: #667eea;
+  }
+
+  .search-input::placeholder {
+    color: #6b7280;
+  }
+
+  .footer-text {
+    color: #6b7280;
+  }
+
+  .search-title {
+    color: #9ca3af;
+  }
+
+  .suggestions-title {
+    color: #f3f4f6;
+  }
+
+  .floating-element {
+    opacity: 0.03;
+  }
+}

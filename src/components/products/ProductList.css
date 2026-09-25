@@ -1,0 +1,401 @@
+/* src/components/products/ProductList.css */
+
+/* === الحاوية الرئيسية === */
+.product-list-wrapper {
+  width: 100%;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === رأس القائمة === */
+.product-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 4px 20px 4px;
+  border-bottom: 1px solid #f3f4f6;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.product-count {
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.product-count strong {
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.view-mode-label {
+  font-size: 14px;
+  color: #9ca3af;
+  background: #f3f4f6;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* === شبكة المنتجات === */
+.product-list {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+}
+
+/* وضع الشبكة */
+.product-list.grid {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* وضع القائمة */
+.product-list.list {
+  grid-template-columns: 1fr;
+}
+
+/* === عنصر المنتج === */
+.product-list-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-list-item.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-list-item:hover {
+  transform: translateY(-4px);
+}
+
+.product-list.list .product-list-item:hover {
+  transform: translateY(-2px);
+}
+
+/* === محفز التحميل التدريجي === */
+.load-more-trigger {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  min-height: 60px;
+}
+
+.load-more-loader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.loader-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #f3f4f6;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === زر تحميل المزيد === */
+.load-more-button-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 10px;
+}
+
+.load-more-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 32px;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: #4b5563;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.load-more-button:hover:not(:disabled) {
+  border-color: #667eea;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.04);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.load-more-button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.load-more-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+.remaining-count {
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* === عرض جميع المنتجات === */
+.all-products-loaded {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 10px;
+  color: #10b981;
+  font-size: 14px;
+  font-weight: 500;
+  animation: fadeInUp 0.5s ease;
+}
+
+.all-products-loaded span {
+  background: #f0fdf4;
+  padding: 8px 24px;
+  border-radius: 20px;
+  border: 1px solid #bbf7d0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === التحميل الأولي (Skeleton) === */
+.product-list .product-skeleton {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* === التصميم المتجاوب === */
+@media (max-width: 1200px) {
+  .product-list.grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .product-list.grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-list.grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
+
+  .product-list.list {
+    gap: 16px;
+  }
+
+  .product-list-header {
+    padding: 8px 0 16px 0;
+    margin-bottom: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .product-count {
+    font-size: 14px;
+  }
+
+  .view-mode-label {
+    font-size: 12px;
+    padding: 3px 12px;
+  }
+
+  .load-more-button {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  .load-more-loader {
+    font-size: 13px;
+  }
+
+  .all-products-loaded {
+    font-size: 13px;
+  }
+
+  .all-products-loaded span {
+    padding: 6px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list.grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+
+  .product-list.list {
+    gap: 12px;
+  }
+
+  .product-list-header {
+    padding: 6px 0 12px 0;
+    margin-bottom: 12px;
+  }
+
+  .product-count {
+    font-size: 13px;
+  }
+
+  .load-more-button {
+    padding: 8px 20px;
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .remaining-count {
+    font-size: 11px;
+  }
+
+  .load-more-loader {
+    font-size: 12px;
+  }
+
+  .loader-spinner {
+    width: 20px;
+    height: 20px;
+  }
+
+  .all-products-loaded span {
+    padding: 4px 14px;
+    font-size: 12px;
+  }
+}
+
+/* === دعم الشاشات الكبيرة جداً === */
+@media (min-width: 1800px) {
+  .product-list.grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+  }
+}
+
+/* === تحسينات للوصول === */
+@media (prefers-reduced-motion: reduce) {
+  .product-list-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .product-list-item.animate {
+    animation: none !important;
+  }
+
+  .product-list-wrapper {
+    animation: none !important;
+  }
+
+  .all-products-loaded {
+    animation: none !important;
+  }
+
+  .loader-spinner,
+  .button-spinner {
+    animation-duration: 0s !important;
+  }
+
+  .load-more-button:hover:not(:disabled) {
+    transform: none !important;
+  }
+}
+
+/* === تخصيص شريط التمرير (للحاويات الداخلية) === */
+.product-list-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.product-list-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.product-list-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 3px;
+}
+
+.product-list-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #764ba2;
+}
+
+/* === تنسيقات إضافية لتحسين المظهر === */
+.product-list-item:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.product-list.list .product-list-item {
+  margin-bottom: 0;
+}
+
+/* دعم RTL */
+[dir="rtl"] .load-more-button {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .remaining-count {
+  margin-right: 4px;
+}
+
+/* === حالة التحميل عند التمرير === */
+.load-more-trigger .load-more-loader .loader-spinner {
+  border: 3px solid #e5e7eb;
+  border-top-color: #667eea;
+}

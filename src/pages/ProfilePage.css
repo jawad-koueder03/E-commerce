@@ -1,0 +1,834 @@
+/* src/pages/ProfilePage.css */
+
+/* === الصفحة === */
+.profile-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: pageFadeIn 0.5s ease;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === رأس الصفحة === */
+.profile-header {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  margin-bottom: 30px;
+}
+
+.profile-cover {
+  height: 160px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+}
+
+.profile-cover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.profile-header-content {
+  padding: 0 30px 30px;
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+
+/* === الصورة الرمزية === */
+.profile-avatar {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-size: 36px;
+  font-weight: 800;
+  border: 4px solid white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.avatar-edit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-edit:hover {
+  background: #f3f4f6;
+  transform: scale(1.1);
+}
+
+/* === معلومات الرأس === */
+.profile-header-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.profile-name {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.profile-email {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0 0 16px 0;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.logout-btn {
+  flex-shrink: 0;
+}
+
+/* === رسائل الحالة === */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: alertSlideIn 0.3s ease;
+}
+
+@keyframes alertSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert-success {
+  background: #f0fdf4;
+  color: #10b981;
+  border: 1px solid #bbf7d0;
+}
+
+.alert-error {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+}
+
+/* === التبويبات === */
+.profile-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  background: white;
+  padding: 8px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow-x: auto;
+}
+
+.tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  background: rgba(102, 126, 234, 0.06);
+  color: #667eea;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.tab-icon {
+  font-size: 16px;
+}
+
+/* === محتوى التبويب === */
+.profile-content {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.tab-panel {
+  animation: panelFadeIn 0.3s ease;
+}
+
+@keyframes panelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f3f4f6;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.panel-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* === النموذج === */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  padding: 10px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  background: #f8fafc;
+  width: 100%;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: #667eea;
+  outline: none;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-input:disabled,
+.form-textarea:disabled {
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.form-input.error {
+  border-color: #ef4444;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.error-text {
+  font-size: 12px;
+  color: #ef4444;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #667eea;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #f3f4f6;
+}
+
+/* === نموذج العنوان === */
+.address-form {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px dashed #d1d5db;
+  animation: addressFormSlide 0.3s ease;
+}
+
+@keyframes addressFormSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === قائمة العناوين === */
+.addresses-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.address-card {
+  padding: 20px;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.address-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+}
+
+.address-card.default {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.04);
+}
+
+.address-header {
+  margin-bottom: 10px;
+}
+
+.address-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.default-badge {
+  font-size: 11px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.address-text {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 0 0 4px 0;
+}
+
+.address-details {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0 0 12px 0;
+}
+
+.address-actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.address-btn {
+  flex: 1;
+  padding: 6px 12px;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.address-btn:hover {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.address-btn.delete:hover {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+/* === الحالة الفارغة === */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+  color: #9ca3af;
+}
+
+.empty-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* === الإعدادات === */
+.settings-section {
+  margin-bottom: 30px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.settings-subtitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 16px 0;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.setting-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.setting-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.setting-description {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* === زر التبديل === */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #d1d5db;
+  border-radius: 26px;
+  transition: all 0.3s ease;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(22px);
+}
+
+/* === التجاوب === */
+@media (max-width: 992px) {
+  .profile-header-content {
+    padding: 0 20px 24px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .addresses-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-page {
+    padding: 12px;
+  }
+
+  .profile-cover {
+    height: 120px;
+  }
+
+  .profile-header-content {
+    padding: 0 16px 20px;
+    gap: 16px;
+  }
+
+  .avatar-initials {
+    width: 80px;
+    height: 80px;
+    font-size: 28px;
+  }
+
+  .profile-name {
+    font-size: 22px;
+  }
+
+  .profile-email {
+    font-size: 14px;
+  }
+
+  .profile-stats {
+    gap: 16px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+  }
+
+  .profile-content {
+    padding: 20px;
+  }
+
+  .tab-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .tab-label {
+    display: none;
+  }
+
+  .tab-icon {
+    font-size: 20px;
+  }
+
+  .panel-title {
+    font-size: 18px;
+  }
+
+  .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-actions {
+    justify-content: stretch;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-page {
+    padding: 8px;
+  }
+
+  .profile-cover {
+    height: 100px;
+  }
+
+  .profile-header-content {
+    margin-top: -40px;
+  }
+
+  .avatar-initials {
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+  }
+
+  .avatar-edit {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .profile-name {
+    font-size: 20px;
+  }
+
+  .stat-value {
+    font-size: 16px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .logout-btn {
+    width: 100%;
+  }
+
+  .profile-content {
+    padding: 16px;
+  }
+
+  .panel-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .profile-tabs {
+    padding: 6px;
+  }
+
+  .tab-btn {
+    padding: 8px 12px;
+  }
+
+  .form-input,
+  .form-textarea,
+  .form-select {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .address-card {
+    padding: 16px;
+  }
+
+  .address-actions {
+    flex-direction: column;
+  }
+}
+
+/* === تحسينات للوصول === */
+@media (prefers-reduced-motion: reduce) {
+  .profile-page,
+  .tab-panel,
+  .alert,
+  .address-form {
+    animation: none !important;
+  }
+
+  .tab-btn,
+  .address-card,
+  .form-input,
+  .form-textarea,
+  .form-select {
+    transition: none !important;
+  }
+}
+
+/* === دعم الوضع المظلم === */
+@media (prefers-color-scheme: dark) {
+  .profile-header,
+  .profile-content,
+  .profile-tabs {
+    background: #1f2937;
+  }
+
+  .profile-name,
+  .panel-title,
+  .setting-label,
+  .form-label {
+    color: #f3f4f6;
+  }
+
+  .profile-email,
+  .stat-label,
+  .setting-description {
+    color: #9ca3af;
+  }
+
+  .form-input,
+  .form-textarea,
+  .form-select {
+    background: #374151;
+    border-color: #4b5563;
+    color: #f3f4f6;
+  }
+
+  .form-input:disabled,
+  .form-textarea:disabled {
+    background: #2d3748;
+  }
+
+  .address-card {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .address-card:hover {
+    border-color: #667eea;
+  }
+
+  .address-label {
+    color: #f3f4f6;
+  }
+
+  .address-text {
+    color: #d1d5db;
+  }
+
+  .panel-header,
+  .form-actions,
+  .settings-section,
+  .address-actions {
+    border-color: #374151;
+  }
+
+  .address-form {
+    background: #1f2937;
+    border-color: #4b5563;
+  }
+
+  .address-btn {
+    background: #374151;
+    color: #d1d5db;
+  }
+
+  .address-btn:hover {
+    background: #4b5563;
+  }
+}

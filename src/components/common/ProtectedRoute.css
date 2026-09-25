@@ -1,0 +1,123 @@
+/* src/components/common/ProtectedRoute.css */
+
+/* === حاوية الرفض === */
+.protected-route-denied {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+}
+
+.denied-content {
+  text-align: center;
+  max-width: 500px;
+  padding: 40px 32px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  animation: deniedFadeIn 0.5s ease;
+}
+
+@keyframes deniedFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.denied-icon {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 16px;
+  animation: deniedPulse 2s ease-in-out infinite;
+}
+
+@keyframes deniedPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.denied-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+}
+
+.denied-message {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.denied-role {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 4px 0;
+}
+
+.denied-role strong {
+  color: #667eea;
+  font-weight: 700;
+}
+
+/* === دعم الوضع المظلم === */
+@media (prefers-color-scheme: dark) {
+  .denied-content {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .denied-title {
+    color: #f3f4f6;
+  }
+
+  .denied-message {
+    color: #9ca3af;
+  }
+
+  .denied-role {
+    color: #d1d5db;
+  }
+}
+
+/* === تحسينات للوصول === */
+@media (prefers-reduced-motion: reduce) {
+  .denied-content {
+    animation: none !important;
+  }
+
+  .denied-icon {
+    animation: none !important;
+  }
+}
+
+/* === التجاوب === */
+@media (max-width: 480px) {
+  .denied-content {
+    padding: 30px 20px;
+  }
+
+  .denied-icon {
+    font-size: 48px;
+  }
+
+  .denied-title {
+    font-size: 20px;
+  }
+
+  .denied-message {
+    font-size: 14px;
+  }
+}
