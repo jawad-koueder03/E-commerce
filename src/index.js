@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // === تقديم التطبيق ===
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/E-commerce">
       <App />
     </BrowserRouter>
   </React.StrictMode>
